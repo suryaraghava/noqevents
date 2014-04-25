@@ -1,7 +1,9 @@
 package com.noq.service;
 
+import com.noq.domain.User;
+
 public interface AuthenticationService {
-	public boolean login(String username, String password);
+	public User login(String username, String password);
 	public void logout();
 
 }

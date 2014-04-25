@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao {
 		sessionfactory.getCurrentSession().saveOrUpdate(user);
 		}
 		catch(Exception e){
-			
+			e.printStackTrace();
 		}
 		finally{
 			if(!sessionfactory.isClosed())

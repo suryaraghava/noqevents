@@ -66,7 +66,7 @@ CREATE TABLE `events` (
   UNIQUE KEY `eventid_UNIQUE` (`eventid`),
   KEY `eventaddedby_idx` (`eventaddedby`),
   CONSTRAINT `eventaddedby` FOREIGN KEY (`eventaddedby`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +75,7 @@ CREATE TABLE `events` (
 
 LOCK TABLES `events` WRITE;
 /*!40000 ALTER TABLE `events` DISABLE KEYS */;
+INSERT INTO `events` VALUES (6,19,1,'test','fjksdlfsa','1970-01-01',NULL,'1234','test',19,NULL,NULL,NULL),(7,19,1,'surya rocks','fjsdkfa;sdfa','1970-01-01',NULL,'1234','surya',19,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `events` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,8 +120,9 @@ CREATE TABLE `user` (
   `last_name` varchar(45) DEFAULT NULL,
   `gender` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
+  `emailid` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,6 +131,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (19,'surya','test',NULL,NULL,NULL,NULL,'surya@lisystems.in'),(20,'surya','test',NULL,NULL,NULL,NULL,'test');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -141,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-25 13:25:44
+-- Dump completed on 2014-04-25 16:31:52

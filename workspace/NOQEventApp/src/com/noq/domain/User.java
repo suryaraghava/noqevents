@@ -1,6 +1,6 @@
 package com.noq.domain;
 
-// Generated Apr 25, 2014 12:19:53 PM by Hibernate Tools 3.4.0.CR1
+// Generated Apr 25, 2014 3:32:12 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,28 +28,28 @@ public class User implements java.io.Serializable {
 	private String lastName;
 	private String gender;
 	private String city;
-	private Logindetails logindetails;
-	private Set<Events> eventses = new HashSet<Events>(0);
+	private String emailid;
+	
 
 	public User() {
 	}
 
-	public User(String username, String password) {
+	public User(String username, String password, String emailid) {
 		this.username = username;
 		this.password = password;
+		this.emailid = emailid;
 	}
 
 	public User(String username, String password, String firstName,
-			String lastName, String gender, String city,
-			Logindetails logindetails, Set<Events> eventses) {
+			String lastName, String gender, String city, String emailid) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
 		this.city = city;
-		this.logindetails = logindetails;
-		this.eventses = eventses;
+		this.emailid = emailid;
+	
 	}
 
 	@Id
@@ -117,22 +117,15 @@ public class User implements java.io.Serializable {
 		this.city = city;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
-	public Logindetails getLogindetails() {
-		return this.logindetails;
+	@Column(name = "emailid", nullable = false, length = 45)
+	public String getEmailid() {
+		return this.emailid;
 	}
 
-	public void setLogindetails(Logindetails logindetails) {
-		this.logindetails = logindetails;
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<Events> getEventses() {
-		return this.eventses;
-	}
-
-	public void setEventses(Set<Events> eventses) {
-		this.eventses = eventses;
-	}
+	
 
 }

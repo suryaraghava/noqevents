@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.noq.domain.User;
 import com.noq.service.AuthenticationService;
 
 @Controller
@@ -28,9 +29,10 @@ public class AuthenticationController {
 		ModelAndView modelView = new ModelAndView();
 		System.out.println("in login service");
 		//Map<String, Object> model = new HashMap<String, Object>();
-		boolean flag = authService.login(userName, password);
-		if (flag){
-			session.setAttribute("username", userName);
+		User user = authService.login(userName, password);
+		if (user!=null){
+			session.setAttribute("username",user.getUsername());
+			session.setAttribute("userid", user.getUserId());
 			modelView = new ModelAndView("redirect:/events.html");
 		}
 		else{

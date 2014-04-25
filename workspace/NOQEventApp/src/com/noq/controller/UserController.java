@@ -41,13 +41,16 @@ public class UserController {
 		else
 		{
 		String userName = userRegistrationForm.getUserName();
+		System.out.println("username:"+userName);
 		String emailID = userRegistrationForm.getEmailId();
+		System.out.println("emailID:"+emailID);
 		if ((!"".equals(userName) && userName != null)
 				&& (!"".equals(emailID) && emailID != null)) {
 			User user = new User();
-			user.setFirstName(userName);
-			user.setLastName(emailID);
-
+			String password = "test";
+			user.setUsername(userName);
+			user.setEmailid(emailID);
+			user.setPassword(password);
 			userService.addUser(user);
 			System.out.println("Save User Data");
 			modelView.setViewName("LoginUser");

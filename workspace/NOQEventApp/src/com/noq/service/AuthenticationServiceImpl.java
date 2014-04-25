@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.noq.dao.AuthenticationDAO;
+import com.noq.domain.User;
 
 
 @Service
@@ -16,14 +17,10 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 	AuthenticationDAO authServiceDao;
 	
 	@Override
-	public boolean login(String username, String password) {
+	public User login(String username, String password) {
 		// TODO Auto-generated method stub
-		boolean flag = false;
-		if(authServiceDao.login(username, password))
-			flag = true;
 		
-		return flag;
-		
+		return authServiceDao.login(username, password);
 	}
 
 	@Override

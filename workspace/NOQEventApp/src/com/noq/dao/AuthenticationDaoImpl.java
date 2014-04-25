@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.noq.domain.Logindetails;
 import com.noq.domain.User;
 
 @Repository("authenticateDao")
@@ -16,19 +15,17 @@ public class AuthenticationDaoImpl implements AuthenticationDAO{
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public boolean login(String username, String password) {
+	public User login(String username, String password) {
 		// TODO Auto-generated method stub
+		User user = new User();
 		boolean flag = false;
 		try{
 		@SuppressWarnings("unchecked")
-	List<User> userList = sessionfactory.getCurrentSession().createSQLQuery("select * from user where username='"+username+"' and password='"+password+"'").addEntity(Logindetails.class).list();
+	List<User> userList = sessionfactory.getCurrentSession().createSQLQuery("select * from user where username='"+username+"' and password='"+password+"'").addEntity(User.class).list();
 	if(!userList.isEmpty()){
-		flag = true;
+		user = userList.get(0);
 	}
-	else
-	{
-		flag = false;
-	}
+	
 		}
 		catch(Exception e){
 			
@@ -37,7 +34,7 @@ public class AuthenticationDaoImpl implements AuthenticationDAO{
 			if(!sessionfactory.isClosed())
 				sessionfactory.close();
 		}
-		return flag;
+		return user;
 	}
 
 	@Override

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.noq.domain.Events;
+import com.noq.domain.User;
 import com.noq.formviews.EventRegistration;
 import com.noq.service.EventService;
 
@@ -58,9 +59,13 @@ public class EventController {
 	}
 	
 	@RequestMapping("/createEvent")
-	public ModelAndView createEvent(){
+	public ModelAndView createEvent(HttpSession session){
 		ModelAndView modelView = new ModelAndView();
+		Integer userid = (Integer) session.getAttribute("userid");
+		if(userid!=null)
 		modelView.setViewName("EventRegistration");
+		else
+			modelView.setViewName("redirect:/loginPage.html");
 		return modelView;
 	}
 	
@@ -68,7 +73,9 @@ public class EventController {
 	public ModelAndView registerNewEvent(@ModelAttribute("EventRegistration") EventRegistration eventRegistration, HttpSession session){
 		ModelAndView modelView = new ModelAndView();
 		String userName = (String) session.getAttribute("username");
-		int userid=1;
+		int userid=(Integer)session.getAttribute("userid");
+		User user = new User();
+		user.setUserId(userid);
 		String eventName = eventRegistration.getEventname();
 		String location = eventRegistration.getLocation();
 		String organiser = eventRegistration.getOrganiser();
@@ -77,6 +84,7 @@ public class EventController {
 		int category = 1;
 		String organizerNumber="1234";
 		Events events = new Events();
+		events.setUser(user);
 		events.setEventdate(new Date(0));
 		events.setEventdetails(description);
 		events.setEventtitle(eventName);

@@ -29,12 +29,12 @@ public class HomeController {
 	@RequestMapping("/home")
 	public ModelAndView getDefaultEvents(){
 		Map<String, Object> model = new HashMap<String, Object>();
-		List<Events> events = eventService.getEvents();
+		/*List<Events> events = eventService.getEvents();
 		model.put("headerpage", "header.html");
 		model.put("latest",events.get(0).getEventtitle());
 		model.put("events", events);
-		
-		return new ModelAndView("EventData", model);
+		*/
+		return new ModelAndView("redirect:/events.html");
 	}
 	
 	@RequestMapping("/register")
