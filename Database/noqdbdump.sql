@@ -122,7 +122,7 @@ CREATE TABLE `user` (
   `city` varchar(45) DEFAULT NULL,
   `emailid` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (19,'surya','test',NULL,NULL,NULL,NULL,'surya@lisystems.in'),(20,'surya','test',NULL,NULL,NULL,NULL,'test');
+INSERT INTO `user` VALUES (19,'surya','test',NULL,NULL,NULL,NULL,'surya@lisystems.in'),(20,'surya','test',NULL,NULL,NULL,NULL,'test'),(21,'surya@123','test',NULL,NULL,NULL,NULL,'test');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -144,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-25 16:31:52
+-- Dump completed on 2014-05-02 21:08:33
