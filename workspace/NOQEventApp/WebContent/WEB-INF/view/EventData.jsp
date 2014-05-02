@@ -33,12 +33,13 @@
     </div>
     <div id="content_header"></div>
     <div id="site_content">
+    <h4>${message}</</h4>
       <div class="sidebar">
      <c:if test="${empty sessionScope.username}">
       <h3>Login</h3>
         <form action="login.html" method="post">
           <div class="form_settings">
-            <p><span>User Name</span><input class="contact" type="text" name="username" value="" /></p>
+            <p><span>User Name</span><input class="contact" type="text" name="username" value="" autofocus/></p>
             <p><span>Password</span><input class="contact" type="password" name="password" value="" /></p>            
             <p style="padding-top: 15px"><span><input class="submit" type="submit" name="submit" value="Login" /></span>
             <a href="signup.html"><input class="submit" type="button" name="submit" value="Signup" /></a></p>

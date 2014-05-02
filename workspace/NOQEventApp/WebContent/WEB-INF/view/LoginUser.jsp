@@ -39,7 +39,7 @@
         <h1>Login</h1>
         <form action="login.html" method="post">
           <div class="form_settings">
-            <p><span>User Name</span><input class="contact" type="text" name="username" value="" /></p>
+            <p><span>User Name</span><input class="contact" type="text" name="username" value="" autofocus/></p>
             <p><span>Password</span><input class="contact" type="password" name="password" value="" /></p>            
             <p style="padding-top: 15px"><span><input class="submit" type="submit" name="submit" value="Login" /></span>
             <a href="signup.html"><input class="submit" type="button" name="submit" value="Signup" /></a></p>
