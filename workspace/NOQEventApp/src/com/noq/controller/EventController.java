@@ -149,7 +149,7 @@ public class EventController {
 		return new ModelAndView("EventDataInfo", model);
 	}
 	
-	@RequestMapping("/getEventCategory/{category}")
+	@RequestMapping("/getEventCategory/{category}") 
 	public ModelAndView getEventCategoryDetails(@PathVariable("category") String id){
 		Map<String, Object> model = new HashMap<String, Object>();
 		Events events = eventService.getEvents(id);
