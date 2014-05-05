@@ -1,5 +1,6 @@
 package com.noq.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.noq.dao.EventsDAO;
+import com.noq.domain.Eventcategory;
 import com.noq.domain.Events;
 
 @Service
@@ -38,6 +40,14 @@ public class EventServiceImpl implements EventService{
 		System.out.println("in event service");
 		Events events = eventDao.getEvents(id);
 		return events;
+	}
+
+	@Override
+	public List<Eventcategory> getEventCategory() {
+		// TODO Auto-generated method stub
+		List<Eventcategory> categoryList = new ArrayList<Eventcategory>();
+		categoryList = eventDao.getEventCategory();
+		return categoryList;
 	}
 	
 

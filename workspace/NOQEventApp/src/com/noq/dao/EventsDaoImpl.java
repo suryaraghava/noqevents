@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.noq.domain.Eventcategory;
 import com.noq.domain.Events;
 
 
@@ -35,6 +36,7 @@ public class EventsDaoImpl implements EventsDAO{
 		return flag;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Events> getEvents() {
 		List<Events> eventslist=null;
@@ -63,7 +65,7 @@ public class EventsDaoImpl implements EventsDAO{
 		System.out.println("in get events method");
 		
 		 eventslist=(Events) sessionfactory.getCurrentSession()
-				.createSQLQuery("select * from events where eventid="+id).addEntity(Events.class).uniqueResult();
+				.createSQLQuery("select * from events,user where eventid="+id+" and events.eventaddedby=user.user_id").addEntity(Events.class).uniqueResult();
 		
 		System.out.println(eventslist.getEventtitle());
 		}
@@ -76,6 +78,29 @@ public class EventsDaoImpl implements EventsDAO{
 		}
 			
 		return eventslist;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Eventcategory> getEventCategory() {
+		List<Eventcategory> categorylist=null;
+		try{
+		System.out.println("in get events method");
+		
+		categorylist= sessionfactory.getCurrentSession()
+				.createSQLQuery("select * from eventcategory").addEntity(Eventcategory.class).list();
+		System.out.println("eventcategory"+categorylist);
+		//System.out.println(eventslist.get(0).getEventtitle());
+		
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	finally{
+		if(!sessionfactory.isClosed())
+			sessionfactory.close();
+	}
+		return categorylist;
 	}
 	
 }

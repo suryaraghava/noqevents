@@ -50,6 +50,10 @@
              </p>
             <p><span>${eventdate } </span>
               </p>
+              <p><span>${organiser} </span>
+              </p>
+              <p><span>${organisermail } </span>
+              </p>
 			 <c:if test="${empty sessionScope.username}">              
             <p style="padding-top: 15px"><span>&nbsp;</span>
               <a href="${pathvalue}loginPage.html" ><input type=button class=submit value="Login"/></a>

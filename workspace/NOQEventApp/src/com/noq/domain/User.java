@@ -1,6 +1,6 @@
 package com.noq.domain;
 
-// Generated Apr 25, 2014 3:32:12 PM by Hibernate Tools 3.4.0.CR1
+// Generated May 3, 2014 8:01:12 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +29,8 @@ public class User implements java.io.Serializable {
 	private String gender;
 	private String city;
 	private String emailid;
-	
+	private Logindetails logindetails;
+	private Set<Events> eventses = new HashSet<Events>(0);
 
 	public User() {
 	}
@@ -41,7 +42,8 @@ public class User implements java.io.Serializable {
 	}
 
 	public User(String username, String password, String firstName,
-			String lastName, String gender, String city, String emailid) {
+			String lastName, String gender, String city, String emailid,
+			Logindetails logindetails, Set<Events> eventses) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
@@ -49,7 +51,8 @@ public class User implements java.io.Serializable {
 		this.gender = gender;
 		this.city = city;
 		this.emailid = emailid;
-	
+		this.logindetails = logindetails;
+		this.eventses = eventses;
 	}
 
 	@Id
@@ -126,6 +129,6 @@ public class User implements java.io.Serializable {
 		this.emailid = emailid;
 	}
 
-	
+
 
 }

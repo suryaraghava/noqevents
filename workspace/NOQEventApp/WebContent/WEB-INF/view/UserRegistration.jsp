@@ -43,7 +43,7 @@
       </c:if>
      </div>
       <div id="content">
-        <h1> User Registration </h1>
+        <h1>Registration </h1>
         <form action="#" method="post">
           <div class="form_settings">
             <p><span> Name</span>
@@ -51,6 +51,7 @@
             <p><span>Event</span>
               <input class="contact" type="text" name="eventid" value="" />
             </p>
+            <p>
 			  <input class="submit" type="submit" name="submit" value="Register Me" />
             </p>
           </div>

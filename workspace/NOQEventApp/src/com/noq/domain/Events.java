@@ -1,6 +1,6 @@
 package com.noq.domain;
 
-// Generated Apr 25, 2014 3:32:12 PM by Hibernate Tools 3.4.0.CR1
+// Generated May 3, 2014 8:01:12 AM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -26,7 +26,10 @@ public class Events implements java.io.Serializable {
 	private User user;
 	private int eventcategory;
 	private String eventtitle;
+	private String eventlocation;
+	private String eventtype;
 	private String eventdetails;
+	private String noofseats;
 	private Date eventdate;
 	private String eventimagepath;
 	private String eventorganisernumber;
@@ -49,14 +52,18 @@ public class Events implements java.io.Serializable {
 	}
 
 	public Events(User user, int eventcategory, String eventtitle,
-			String eventdetails, Date eventdate, String eventimagepath,
+			String eventlocation, String eventtype, String eventdetails,
+			String noofseats, Date eventdate, String eventimagepath,
 			String eventorganisernumber, String eventorganisermailid,
 			Integer createdby, Date createdtime, Integer modifiedby,
 			Date modifiedtime) {
 		this.user = user;
 		this.eventcategory = eventcategory;
 		this.eventtitle = eventtitle;
+		this.eventlocation = eventlocation;
+		this.eventtype = eventtype;
 		this.eventdetails = eventdetails;
+		this.noofseats = noofseats;
 		this.eventdate = eventdate;
 		this.eventimagepath = eventimagepath;
 		this.eventorganisernumber = eventorganisernumber;
@@ -78,7 +85,7 @@ public class Events implements java.io.Serializable {
 		this.eventid = eventid;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "eventaddedby", nullable = false)
 	public User getUser() {
 		return this.user;
@@ -106,6 +113,24 @@ public class Events implements java.io.Serializable {
 		this.eventtitle = eventtitle;
 	}
 
+	@Column(name = "eventlocation", length = 45)
+	public String getEventlocation() {
+		return this.eventlocation;
+	}
+
+	public void setEventlocation(String eventlocation) {
+		this.eventlocation = eventlocation;
+	}
+
+	@Column(name = "eventtype", length = 45)
+	public String getEventtype() {
+		return this.eventtype;
+	}
+
+	public void setEventtype(String eventtype) {
+		this.eventtype = eventtype;
+	}
+
 	@Column(name = "eventdetails", length = 455)
 	public String getEventdetails() {
 		return this.eventdetails;
@@ -113,6 +138,15 @@ public class Events implements java.io.Serializable {
 
 	public void setEventdetails(String eventdetails) {
 		this.eventdetails = eventdetails;
+	}
+
+	@Column(name = "noofseats", length = 45)
+	public String getNoofseats() {
+		return this.noofseats;
+	}
+
+	public void setNoofseats(String noofseats) {
+		this.noofseats = noofseats;
 	}
 
 	@Temporal(TemporalType.DATE)

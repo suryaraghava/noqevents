@@ -1,6 +1,6 @@
 package com.noq.domain;
 
-// Generated Apr 25, 2014 3:32:12 PM by Hibernate Tools 3.4.0.CR1
+// Generated May 3, 2014 8:01:12 AM by Hibernate Tools 3.4.0.CR1
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

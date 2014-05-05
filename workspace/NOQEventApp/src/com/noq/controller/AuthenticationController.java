@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.noq.domain.User;
 import com.noq.service.AuthenticationService;
+import com.noq.util.PassowrdHash;
 
 @Controller
 
@@ -29,7 +30,9 @@ public class AuthenticationController {
 		ModelAndView modelView = new ModelAndView();
 		System.out.println("in login service");
 		//Map<String, Object> model = new HashMap<String, Object>();
-		User user = authService.login(userName, password);
+		PassowrdHash pHash = new PassowrdHash();
+		String hashPass = pHash.encrypt(password);
+		User user = authService.login(userName, hashPass);
 		if (user!=null){
 			session.setAttribute("username",user.getUsername());
 			session.setAttribute("userid", user.getUserId());
